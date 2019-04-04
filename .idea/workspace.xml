@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7b06726f-cde6-4cca-bfdc-0feb36378ebc" name="Default Changelist" comment="" />
+    <list default="true" id="7b06726f-cde6-4cca-bfdc-0feb36378ebc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/OnScreen.java" beforeDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,8 +50,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="181" />
-    <option name="y" value="19" />
+    <option name="x" value="391" />
+    <option name="y" value="39" />
     <option name="width" value="1420" />
     <option name="height" value="820" />
   </component>
@@ -122,15 +124,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1554262265913</updated>
-      <workItem from="1554262269479" duration="11096000" />
+      <workItem from="1554262269479" duration="11359000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11096000" />
+    <option name="totallyTimeSpent" value="11359000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="181" y="19" width="1420" height="820" extended-state="0" />
+    <frame x="391" y="39" width="1420" height="820" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Image Layers" />
@@ -189,6 +191,13 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OnScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
