@@ -88,8 +88,10 @@ import javax.swing.JFrame;
             public void background(Graphics g){
 
             g.drawImage(render.imgCreate(SPRITE_DIR + "BG/BG.png"),-50,-300,null);
-            g.setColor(Color.black);
+            
 
+            }
+            public void foreground(Graphics g){
 
             }
 

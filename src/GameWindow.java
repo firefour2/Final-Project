@@ -86,10 +86,27 @@ import javax.swing.JFrame;
 
             }
             public void background(Graphics g){
+            Menu menu = new Menu();
+
+            menu.create();;
+            menu.drawMenu(g);
+
+
 
             g.drawImage(render.imgCreate(SPRITE_DIR + "BG/BG.png"),-50,-300,null);
-            g.setColor(Color.black);
 
+
+            }
+            public int getWidth(){
+                return WIDTH;
+            }
+            public int getHeight(){
+                return HEIGHT;
+            }
+
+
+
+            public void foreground(Graphics g){
 
             }
 
