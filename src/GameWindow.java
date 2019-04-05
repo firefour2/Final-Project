@@ -1,25 +1,127 @@
-import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.Graphics;
+import java.awt.image.BufferStrategy;
 
-public class GameWindow extends Canvas{
+import javax.swing.*;
+import javax.swing.Timer;
+import javax.swing.JFrame;
 
-    public static int WIDTH = 640;
-    public static int HEIGHT = WIDTH;
-    public static String TITLE = "ZeldaKnockOff 2";
+    public class GameWindow extends Canvas implements ActionListener, Runnable {
+
+            public final static int WIDTH = 640;
+            public final static int HEIGHT = 480;
+            public final static String TITLE = "Zeldish";
+            public static final String SPRITE_DIR = "../png/";
+
+            public boolean running = false;
+            public Thread main2;
+
+            public static GameWindow window = new GameWindow();
+            public Renderer render;
+
+            //creates a method that needs to execute before another one can start
+            private synchronized void start() {
+                if (running)
+                    return;
+                else
+                    running = true;
+                main2 = new Thread();
+                main2.start();
+            }
+
+            private synchronized void stop() {
+                if (!running) {
+                    return;
+                } else
+                    running = false;
+
+                try {
+                    main2.join();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.exit(1);
+            }
+
+            public void init() {
+            }
+
+            public void ticks() {
+            }
+
+            @Override
+            public void run() {
+                init();
+                long lastTime = System.nanoTime();
+                double numTicks = 60;
+                double delta = 0;
+                double n = 1000000 / numTicks;
+                int frames = 0;
+                int ticks = 0;
+                long timer = System.currentTimeMillis();
+
+                while (running) {
+                    long currentTime = System.nanoTime();
+                    delta += (currentTime - lastTime);
+                    lastTime = currentTime;
+
+                    if(delta >= 1) {
+                    ticks ++;
+                    delta--;
+                    }
+                    render();
+                    frames++;
+
+
+                }
+            }
+
+
+            @Override
+            public void actionPerformed(ActionEvent e){
+
+            }
+            public void background(Graphics g){
+/*
+            g.drawImage(render.imgCreate(SPRITE_DIR + "BG/BG.png"),0,0,null);
+            g.setColor(Color.black);
+*/
+
+            }
+
+
+            public void render(){
+                BufferStrategy bs = this.getBufferStrategy();
+                    if(bs == null){
+                        createBufferStrategy(3);
+                        return;
+                    }
+
+                    Graphics g = bs.getDrawGraphics();
+                    g.setColor(Color.BLACK);
+                    g.fillRect(0,0,WIDTH,HEIGHT);
+                    ///////////////////////
+                    g.dispose();
+                    bs.show();
+            }
+
+
+            public static void main(String[]args){
+
+                JFrame frame = new JFrame(TITLE);
+                frame.add(window);
+                frame.setSize(WIDTH,HEIGHT);
+                frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+                frame.setFocusable(true);
+                frame.setLocationRelativeTo(null);
+                frame.setResizable(false);
+                frame.setVisible(true);
+                frame.pack();
+
+            }
 
 
 
-    public static void main(String[] args) {
-
-        JFrame frame = new JFrame(TITLE);
-        frame.add();
-        frame.setSize(WIDTH,HEIGHT);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setFocusable(true);
-        frame.setLocationRelativeTo(null);
-        frame.setResizable(false);
-        frame.setVisible(true);
     }
-
-
-}
