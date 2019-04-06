@@ -17,7 +17,7 @@ import javax.swing.JFrame;
 
             public boolean running = false;
             public Thread main2;
-            Renderer render = new Renderer();
+            private Renderer render;
 
 
             public static GameWindow window = new GameWindow();
@@ -48,6 +48,8 @@ import javax.swing.JFrame;
             }
 
             public void init() {
+                Menu.create();
+                render = new Renderer();
             }
 
             public void ticks() {
@@ -87,10 +89,23 @@ import javax.swing.JFrame;
             }
             public void background(Graphics g){
 
-            g.drawImage(render.imgCreate(SPRITE_DIR + "BG/BG.png"),-50,-300,null);
-            
+            Menu menu = new Menu();
+            menu.create();
+            menu.drawMenu(g);
+
+            //g.drawImage(render.imgCreate(SPRITE_DIR + "BG/BG.png"),-50,-300,null);
+
 
             }
+            public int getWidth(){
+                return WIDTH;
+            }
+            public int getHeight(){
+                return HEIGHT;
+            }
+
+
+
             public void foreground(Graphics g){
 
             }
